@@ -111,12 +111,6 @@ export default function MatrixDetails({ matrix }: MatrixDetailsProps) {
                 <dt className="text-sm font-medium text-gray-500">Number of Eigenvalues (nev)</dt>
                 <dd className="mt-1 text-sm text-gray-900">{matrix.nev}</dd>
               </div>
-              {matrix.nex && (
-                <div className="sm:col-span-1">
-                  <dt className="text-sm font-medium text-gray-500">Number of Excitons (Nex)</dt>
-                  <dd className="mt-1 text-sm text-gray-900">{matrix.nex}</dd>
-                </div>
-              )}
               {matrix.numCorrelatedSystems && (
                 <div className="sm:col-span-1">
                   <dt className="text-sm font-medium text-gray-500">Number of Correlated Systems</dt>
