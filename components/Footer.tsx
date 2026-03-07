@@ -54,12 +54,12 @@ export default function Footer() {
               <p>Matrix Hub (2024)</p>
               <p className="mt-1">
                 <a 
-                  href="https://doi.org/10.5281/zenodo.1234567" 
+                  href="https://doi.org/10.26165/JUELICH-DATA/BKJOES" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-white underline"
                 >
-                  DOI: 10.5281/zenodo.1234567
+                  DOI: 10.26165/JUELICH-DATA/BKJOES
                 </a>
               </p>
             </div>
