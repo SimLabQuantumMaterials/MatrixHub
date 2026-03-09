@@ -51,7 +51,7 @@ export default function Footer() {
               If you use matrices from this database in your research, please cite:
             </p>
             <div className="mt-2 text-gray-200 text-sm">
-              <p>Matrix Hub (2024)</p>
+              <p>Matrix Hub (2026)</p>
               <p className="mt-1">
                 <a 
                   href="https://doi.org/10.26165/JUELICH-DATA/BKJOES" 
