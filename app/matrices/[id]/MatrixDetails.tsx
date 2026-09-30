@@ -68,6 +68,8 @@ export default function MatrixDetails({ matrix }: MatrixDetailsProps) {
 
   const binaryWgetCommand = `wget ${matrix.downloadUrl}`;
   const metadataWgetCommand = matrix.metadataUrl ? `wget ${matrix.metadataUrl}` : null;
+  const eigenvaluesWgetCommand = matrix.eigenvaluesUrl ? `wget ${matrix.eigenvaluesUrl}` : null;
+  const chaseLogWgetCommand = matrix.chaseLogUrl ? `wget ${matrix.chaseLogUrl}` : null;
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -174,6 +176,80 @@ export default function MatrixDetails({ matrix }: MatrixDetailsProps) {
                   </div>
                 </div>
               </div>
+
+              {matrix.eigenvaluesUrl && (
+                <div>
+                  <h4 className="text-sm font-medium text-gray-700 mb-2">Eigenvalue spectrum (.bin)</h4>
+                  <p className="mt-1 mb-2 text-sm text-gray-500">
+                    Full spectrum: n native-endian float64 values, ascending, in Rydberg.
+                    {matrix.numCorrelatedSystems && matrix.numCorrelatedSystems > 1
+                      ? ' The link is step id_1. Replace the id the same way as the Hamiltonian to get the other steps.'
+                      : ''}
+                  </p>
+                  <div className="bg-gray-50 rounded-md p-4">
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <a
+                        href={matrix.eigenvaluesUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md text-white bg-[#003D66] hover:bg-[#002D4D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#003D66]"
+                      >
+                        Download spectrum
+                      </a>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <code className="text-sm text-gray-800 font-mono break-all">{eigenvaluesWgetCommand}</code>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(eigenvaluesWgetCommand || '');
+                          setCopiedCommand('eigenvalues');
+                          setTimeout(() => setCopiedCommand(null), 2000);
+                        }}
+                        className="ml-4 flex-shrink-0 inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      >
+                        {copiedCommand === 'eigenvalues' ? 'Copied!' : 'Copy'}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {matrix.chaseLogUrl && (
+                <div>
+                  <h4 className="text-sm font-medium text-gray-700 mb-2">ChASE log</h4>
+                  <p className="mt-1 mb-2 text-sm text-gray-500">
+                    Text log of a ChASE run for the lowest eigenvalues. It is not a full spectrum.
+                    {matrix.numCorrelatedSystems && matrix.numCorrelatedSystems > 1 && matrix.chaseLogUrl?.includes('id_1')
+                      ? ' The link is step id_1. Replace the id the same way as the Hamiltonian to get the other steps.'
+                      : ''}
+                  </p>
+                  <div className="bg-gray-50 rounded-md p-4">
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <a
+                        href={matrix.chaseLogUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md text-white bg-[#003D66] hover:bg-[#002D4D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#003D66]"
+                      >
+                        Download ChASE log
+                      </a>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <code className="text-sm text-gray-800 font-mono break-all">{chaseLogWgetCommand}</code>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(chaseLogWgetCommand || '');
+                          setCopiedCommand('chase');
+                          setTimeout(() => setCopiedCommand(null), 2000);
+                        }}
+                        className="ml-4 flex-shrink-0 inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      >
+                        {copiedCommand === 'chase' ? 'Copied!' : 'Copy'}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Metadata JSON File Download */}
               {matrix.metadataUrl && (

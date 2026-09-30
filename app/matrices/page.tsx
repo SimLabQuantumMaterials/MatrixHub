@@ -168,6 +168,17 @@ function MatricesPageContent() {
                 </button>
               </sup>
             )}
+            {part === 'PW' && (
+              <sup>
+                <button
+                  onClick={scrollToFootnotes}
+                  className="text-blue-600 hover:text-blue-800 font-medium ml-1"
+                  aria-label="View footnote for PW"
+                >
+                  5
+                </button>
+              </sup>
+            )}
             {index < parts.length - 1 && ', '}
           </span>
         ))}
@@ -475,6 +486,7 @@ function MatricesPageContent() {
             <li>FLAPW: Full-potential linearized augmented-plane-wave method</li>
             <li>BSE: Bethe-Salpeter Equation (e.g. eigenvalue problems)</li>
             <li>NAOs: Numerically tabulated atom-centered orbitals</li>
+            <li>PW: Plane-wave basis. Quantum ESPRESSO Gamma-point matrices here are real symmetric float64 Hamiltonians in Rydberg, not converged SCF results</li>
           </ul>
         </div>
       </div>

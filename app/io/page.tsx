@@ -25,9 +25,11 @@ function IOPageContent() {
               <div>
                 <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">Format Specification</h3>
                 <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mt-2">
-                  <li>Binary format (no text/ASCII)</li>
+                  <li>Binary format (no text/ASCII header)</li>
                   <li>Column-major ordering (Fortran-style)</li>
                   <li>Continuous memory layout</li>
+                  <li>Real symmetric double precision, including Quantum ESPRESSO Gamma-point Hamiltonians: float64, 8 bytes per entry. Those Hamiltonians are in Rydberg</li>
+                  <li>Complex matrices: complex64 (single, 8 bytes) or complex128 (double, 16 bytes) per entry</li>
                 </ul>
               </div>
               <div>

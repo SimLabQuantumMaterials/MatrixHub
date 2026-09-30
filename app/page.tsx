@@ -69,7 +69,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">DFT Matrices</h3>
-                <p className="text-gray-600 mb-4">Density Functional Theory matrices from FLEUR and FHI-aims, including FLAPW and NAOs methods</p>
+                <p className="text-gray-600 mb-4">Density Functional Theory matrices from FLEUR, FHI-aims, and Quantum ESPRESSO, including FLAPW, NAO, and plane-wave methods</p>
                 <Link href="/matrices?type=DFT" className="text-blue-600 hover:text-blue-800 font-medium">
                   Browse DFT Matrices →
                 </Link>
@@ -83,7 +83,7 @@ export default function Home() {
               </div>
               <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">System Types</h3>
-                <p className="text-gray-600 mb-4">Matrices from various physical systems including Silicon, MoS2, In2O3, and more, with different sizes and properties</p>
+                <p className="text-gray-600 mb-4">Matrices from various physical systems including diamond, cubic BN, silicon vacancies, MoS2, In2O3, and more</p>
                 <Link href="/matrices" className="text-blue-600 hover:text-blue-800 font-medium">
                   Browse All Systems →
                 </Link>
