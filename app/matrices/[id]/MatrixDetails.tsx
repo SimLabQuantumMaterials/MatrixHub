@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Matrix } from '../../data/matrices';
+import QuantumEspressoNote from '@/components/QuantumEspressoNote';
 
 interface MatrixDetailsProps {
   matrix: Matrix;
@@ -321,6 +322,7 @@ export default function MatrixDetails({ matrix }: MatrixDetailsProps) {
             </div>
           </div>
         </div>
+        {matrix.software === 'Quantum ESPRESSO' && <QuantumEspressoNote />}
       </div>
     </div>
   );
